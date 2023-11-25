@@ -4,12 +4,12 @@
 	<header class="header" ref="header">
 		<div class="header__container">
 			<div class="header__body">
-				<a class="header__logo logo" href="/">
+				<router-link class="header__logo logo" to="/">
 					<div class="logo__icon ibg">
 						<img src="@/assets/img/logo.svg" alt="logo" />
 					</div>
 					<div class="logo__text">Furniro</div>
-				</a>
+				</router-link>
 				<div class="header__menu menu" ref="menu">
 					<ul class="menu__list">
 						<li class="menu__item">
