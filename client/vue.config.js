@@ -7,7 +7,7 @@ const importedScss = [
 ].join(' ');
 
 module.exports = defineConfig({
-	publicPath: process.env.NODE_ENV === 'production' ? '/vui-cli/' : '/',
+	publicPath: process.env.NODE_ENV === 'production' ? '/Interior/' : '/',
 	transpileDependencies: true,
 	css: {
 		loaderOptions: {

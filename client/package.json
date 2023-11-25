@@ -1,8 +1,8 @@
 {
-	"name": "vui-cli",
+	"name": "Interior",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://Woollywood.github.io/vui-cli",
+	"homepage": "https://Woollywood.github.io/Interior",
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
@@ -11,8 +11,10 @@
 	},
 	"dependencies": {
 		"core-js": "^3.8.3",
+		"materialize-css": "^1.0.0-rc.2",
 		"normalize.css": "^8.0.1",
 		"vue": "^3.2.13",
+		"vue-imask": "^7.1.3",
 		"vue-router": "^4.0.3",
 		"vuex": "^4.0.0"
 	},
