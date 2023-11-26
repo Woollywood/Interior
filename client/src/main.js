@@ -3,7 +3,7 @@ import App from '@/App.vue';
 import router from '@/router';
 import store from '@/store';
 
-import components from '@/assets/components/ui';
+import components from '@/components/ui';
 
 import '@/assets/styles/index.scss';
 

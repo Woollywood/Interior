@@ -30,7 +30,7 @@ const iconHeight = computed(() => {
 	return props.height + 'px';
 });
 
-const icon = defineAsyncComponent(() => import(`@/assets/components/ui/icons/${props.name}`));
+const icon = defineAsyncComponent(() => import(`@/components/ui/icons/${props.name}`));
 </script>
 
 <template>
