@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Header from '@/assets/components/Header.vue';
-import Footer from '@/assets/components/Footer.vue';
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
 	components: {
@@ -20,4 +20,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.main {
+	padding-top: var(--header-height);
+}
+</style>

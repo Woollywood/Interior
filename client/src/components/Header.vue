@@ -56,12 +56,30 @@ export default {
 			this.$refs.menu.classList.toggle('open');
 			this.$refs.header.classList.toggle('menu-open');
 		},
+		calculateHeight() {
+			const headerEl = this.$refs.header;
+			const headerHeight = headerEl.offsetHeight;
+			document.documentElement.style.cssText += `--header-height: ${headerHeight}px`;
+		},
+	},
+	mounted() {
+		this.calculateHeight();
+		window.addEventListener('resize', this.calculateHeight);
+	},
+	unmounted() {
+		window.removeEventListener('resize', this.calculateHeight);
 	},
 };
 </script>
 
 <style lang="scss" scoped>
 .header {
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+
 	&__container {
 		@include adaptiveValue('padding-left', 54, 16, 0, 1920, 568);
 		@include adaptiveValue('padding-right', 54, 16, 0, 1920, 568);
