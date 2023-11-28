@@ -5,42 +5,52 @@
 				<div class="section__sub-title">Share your setup with</div>
 				<SectionTitle class="section__title" type="h2">#FuniroFurniture</SectionTitle>
 			</div>
-			<div class="section__content" v-parallax="0.01">
+			<div class="section__content" v-parallax="0.01" ref="gallery">
 				<div class="section__items" data-items>
 					<div class="section__column" data-column>
 						<div class="section__row row row--left-top">
-							<img
-								v-for="image in items.leftTop"
-								:src="require(`@/assets/img/home/collection/${image.imageName}`)"
-								alt="gallery-image" />
+							<button v-for="image in items.leftTop">
+								<img
+									data-fancybox="gallery"
+									:src="require(`@/assets/img/home/collection/${image.imageName}`)"
+									alt="gallery-image" />
+							</button>
 						</div>
 						<div class="section__row row row--left-bottom">
-							<img
-								v-for="image in items.leftBottom"
-								:src="require(`@/assets/img/home/collection/${image.imageName}`)"
-								alt="gallery-image" />
+							<button v-for="image in items.leftBottom">
+								<img
+									data-fancybox="gallery"
+									:src="require(`@/assets/img/home/collection/${image.imageName}`)"
+									alt="gallery-image" />
+							</button>
 						</div>
 					</div>
 					<div class="section__column" data-column>
 						<div class="section__row row row--left-center">
-							<img
-								v-for="image in items.center"
-								:src="require(`@/assets/img/home/collection/${image.imageName}`)"
-								alt="gallery-image" />
+							<button v-for="image in items.center">
+								<img
+									data-fancybox="gallery"
+									:src="require(`@/assets/img/home/collection/${image.imageName}`)"
+									alt="gallery-image" />
+							</button>
 						</div>
 					</div>
 					<div class="section__column" data-column>
 						<div class="section__row row row--right-top">
-							<img
-								v-for="image in items.rightTop"
-								:src="require(`@/assets/img/home/collection/${image.imageName}`)"
-								alt="gallery-image" />
+							<button v-for="image in items.rightTop">
+								<img
+									data-fancybox="gallery"
+									:src="require(`@/assets/img/home/collection/${image.imageName}`)"
+									alt="gallery-image" />
+							</button>
 						</div>
 						<div class="section__row row row--right-bottom">
-							<img
-								v-for="image in items.rightBottom"
-								:src="require(`@/assets/img/home/collection/${image.imageName}`)"
-								alt="gallery-image" />
+							<button v-for="image in items.rightBottom">
+								<img
+									data-fancybox="gallery"
+									:src="require(`@/assets/img/home/collection/${image.imageName}`)"
+									alt="gallery-image" />
+							</button>
 						</div>
 					</div>
 				</div>
@@ -48,7 +58,11 @@
 		</div>
 	</section>
 </template>
+
 <script>
+import { Fancybox } from '@fancyapps/ui';
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
+
 export default {
 	data() {
 		return {
@@ -81,6 +95,9 @@ export default {
 			},
 		};
 	},
+	mounted() {
+		Fancybox.bind('[data-fancybox]', {});
+	},
 };
 </script>
 <style lang="scss" scoped>
@@ -96,6 +113,10 @@ export default {
 		flex-direction: column;
 		gap: rem(8);
 		align-items: center;
+
+		&:not(:last-child) {
+			margin-bottom: rem(16);
+		}
 	}
 
 	&__sub-title {
@@ -170,8 +191,17 @@ export default {
 		align-items: flex-start;
 	}
 
-	img {
-		max-width: unset;
+	button {
+		&:hover {
+			img {
+				transform: scale(1.06);
+			}
+		}
+
+		img {
+			max-width: unset;
+			transition: transform 0.3s ease;
+		}
 	}
 }
 </style>
