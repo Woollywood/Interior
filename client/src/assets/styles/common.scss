@@ -66,3 +66,60 @@ textarea {
 	font-size: inherit;
 	line-height: inherit;
 }
+
+.section-gutter {
+	@include adaptiveValue('margin-bottom', 56, 32, 0, 1920, 568);
+}
+
+.swiper-pagination {
+	display: flex;
+	align-items: center;
+	@include adaptiveValue('gap', 20, 12, 0, 1920, 568);
+	height: rem(28);
+	overflow: visible;
+
+	.swiper-pagination-bullet {
+		cursor: pointer;
+		width: rem(12);
+		height: rem(12);
+		border-radius: 50%;
+		background-color: color('grey-5');
+		transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+
+		&:hover {
+			background-color: color('primary');
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: rem(12);
+			height: rem(12);
+			background-color: color('primary');
+			border-radius: 50%;
+
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		&.swiper-pagination-bullet-active {
+			position: relative;
+			width: rem(28);
+			height: rem(28);
+			background-color: transparent;
+			border: rem(1) solid color('primary');
+
+			&::before {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
+}

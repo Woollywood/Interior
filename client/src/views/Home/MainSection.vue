@@ -1,16 +1,14 @@
 <script setup>
 import { Parallax, Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/parallax';
 </script>
 
 <template>
-	<section class="section">
+	<section class="section section-gutter">
 		<div class="section__body">
 			<swiper
 				:slides-per-view="1"
 				:loop="true"
+				:autoplay="{ delay: 3000 }"
 				:speed="1200"
 				grab-cursor
 				parallax

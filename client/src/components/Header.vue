@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-	<header class="header" ref="header">
+	<header class="header" ref="header" v-scroll>
 		<div class="header__container">
 			<div class="header__body">
 				<router-link class="header__logo logo" to="/">
@@ -79,6 +79,16 @@ export default {
 	top: 0;
 	left: 0;
 	width: 100%;
+	background-color: color('white');
+	transition: background-color 0.3s ease;
+
+	&.scroll {
+		background-color: color('white', 0.4);
+
+		&:hover {
+			background-color: color('white', 0.9);
+		}
+	}
 
 	&__container {
 		@include adaptiveValue('padding-left', 54, 16, 0, 1920, 568);
@@ -89,6 +99,11 @@ export default {
 		color: color('black');
 		padding: rem(6) 0;
 		@include adaptiveValue('min-height', 100, 80, 0, 1920, 568);
+		transition: min-height 0.3s ease;
+
+		.scroll & {
+			@include adaptiveValue('min-height', 80, 60, 0, 1920, 568);
+		}
 
 		display: grid;
 		grid-template-columns: auto 1fr auto;

@@ -36,6 +36,12 @@
 								radix="."
 								placeholder="Скидка (в процентах)" />
 						</div>
+						<div class="input-field input-field--file">
+							<label>
+								<span><SvgIcon name="File" width="24" height="24" /> Загрузить изображение</span>
+								<input type="file" @change="fileUpload" />
+							</label>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -44,6 +50,7 @@
 </template>
 
 <script>
+import { uploadFile } from '@/api';
 import { IMaskComponent } from 'vue-imask';
 export default {
 	components: {
@@ -62,6 +69,11 @@ export default {
 				discount: '',
 			},
 		};
+	},
+	methods: {
+		fileUpload(event) {
+			uploadFile(event.target.files[0]).then((fileData) => console.log(fileData));
+		},
 	},
 };
 </script>
@@ -110,7 +122,20 @@ export default {
 		&--row {
 			display: flex;
 			align-items: center;
-			@include adaptiveValue("gap", 24, 16, 0, 1920, 568);
+			@include adaptiveValue('gap', 24, 16, 0, 1920, 568);
+		}
+
+		&--file {
+			label {
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: rem(4);
+			}
+
+			input {
+				display: none;
+			}
 		}
 
 		label {
