@@ -144,8 +144,11 @@ export default {
 			const swiper = new Swiper(this.$refs.slider, {
 				loop: true,
 				parallax: true,
-				speed: 800,
-				modules: [Navigation, Pagination, Parallax],
+				autoplay: {
+					delay: 3000,
+				},
+				speed: 1200,
+				modules: [Navigation, Pagination, Parallax, Autoplay],
 
 				pagination: {
 					el: '.swiper-pagination',
