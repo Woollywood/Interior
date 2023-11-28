@@ -4,6 +4,7 @@
 		<BrowseSection />
 		<ProductsSection />
 		<InspirationSection />
+		<CollectionSection />
 	</div>
 </template>
 
@@ -12,6 +13,7 @@ import MainSection from '@/views/Home/MainSection';
 import BrowseSection from '@/views/Home/BrowseSection';
 import ProductsSection from '@/views/Home/ProductsSection';
 import InspirationSection from '@/views/Home/InspirationSection';
+import CollectionSection from '@/views/Home/CollectionSection';
 
 export default {
 	components: {
@@ -19,6 +21,7 @@ export default {
 		BrowseSection,
 		ProductsSection,
 		InspirationSection,
+		CollectionSection,
 	},
 	data() {
 		return {};
