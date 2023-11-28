@@ -1,3 +1,4 @@
+import { config } from "dotenv";
 import express from "express";
 import connectDB from "./db/connect.js";
 import fileUpload from "express-fileupload";
@@ -5,12 +6,11 @@ import productRouter from "./routes/productRouts.js";
 import path, { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
+config();
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-import { config } from "dotenv";
-
-config();
 const PORT = process.env.PORT || 5001;
 const app = express();
 app.use(express.json());
